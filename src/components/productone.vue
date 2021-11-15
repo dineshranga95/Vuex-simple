@@ -1,9 +1,10 @@
 <template>
   <div id="">
    <h1>Product list one</h1>
-   <ul v-for="prod in saleProducts">
-     <li> <span>{{prod.name}}</span><span> {{prod.price}}</span></li>     
+   <ul v-for="product in saleProducts">
+     <li> <span>{{product.name}}</span><span> {{product.price}}</span></li>     
    </ul>
+   <button v-on:click="reducePrice">Reduce Price</button>
   </div>
 </template>
 
@@ -16,6 +17,12 @@ export default {
     },
     saleProducts(){
       return this.$store.getters.saleProducts;
+    }
+  },
+  methods:{
+    reducePrice(){
+      this.$store.commit('reducePrice');
+      
     }
   }
  
